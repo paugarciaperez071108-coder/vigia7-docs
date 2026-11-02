@@ -1,0 +1,85 @@
+/* ===== Vigía-7 · estilos propios ===== */
+
+:root {
+  --v7-rojo: #e53935;
+  --v7-verde-crt: #39ff88;
+}
+
+/* Cabecera con una línea roja de alarma */
+.md-header {
+  border-bottom: 2px solid var(--v7-rojo);
+}
+
+/* Títulos con letra de terminal */
+.md-typeset h1 {
+  font-family: "Roboto Mono", monospace;
+  letter-spacing: 0.04em;
+}
+
+/* Rótulo de terminal CRT para la portada */
+.crt {
+  font-family: "Roboto Mono", monospace;
+  color: var(--v7-verde-crt);
+  background: #050a07;
+  border: 1px solid #1d3b2a;
+  border-radius: 6px;
+  padding: 0.8rem 1rem;
+  text-shadow: 0 0 6px rgba(57, 255, 136, 0.6);
+}
+
+/* Galería de imágenes en rejilla */
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 0.8rem;
+}
+.galeria figure {
+  margin: 0;
+}
+.galeria img,
+.md-typeset figure img {
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.md-typeset figcaption {
+  font-size: 0.72rem;
+  opacity: 0.8;
+  max-width: 100%;
+}
+
+/* Fichas de versión de un personaje, lado a lado */
+.versiones {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.8rem;
+  align-items: start;
+}
+.versiones figure {
+  margin: 0;
+}
+
+/* Chip de color (color del triángulo de aviso de cada criatura) */
+.chip {
+  display: inline-block;
+  width: 0.9em;
+  height: 0.9em;
+  border-radius: 2px;
+  vertical-align: -0.1em;
+  margin-right: 0.3em;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+/* Imágenes muy anchas (tiras de comparación) con scroll en móvil */
+.tira {
+  overflow-x: auto;
+}
+.tira img {
+  max-width: none;
+  height: 220px;
+}
+
+/* Tablas del historial: la columna de versión no se parte */
+.md-typeset table:not([class]) td:first-child {
+  white-space: nowrap;
+  font-family: "Roboto Mono", monospace;
+}
