@@ -1,0 +1,98 @@
+site_name: Vigía-7 · Documentación
+site_description: Documentación del fan game de terror Vigía-7 — historial de versiones, la oficina, las cámaras y los personajes.
+site_author: Pau García Pérez
+site_url: https://paugarciaperez071108-coder.github.io/vigia7-docs/
+repo_url: https://github.com/paugarciaperez071108-coder/vigia7-docs
+repo_name: vigia7-docs
+copyright: Vigía-7 · Pau García Pérez · 1.º DAM · Projecte Intermodular 2026
+
+# Puerto del servidor de desarrollo (el enunciado usa el 4000)
+dev_addr: 127.0.0.1:4000
+
+nav:
+  - Inicio: index.md
+  - Historial de versiones:
+      - Resumen: historial/index.md
+      - "v0.1 – v0.30 · Noches 1 y 2": historial/v0-1-a-v0-30.md
+      - "v0.31 – v0.60 · Noches 3 a 5": historial/v0-31-a-v0-60.md
+      - "v0.61 – v0.99 · Noches 6 y 7": historial/v0-61-a-v0-99.md
+      - "v1.00 – v1.38 · El final": historial/v1-00-a-v1-38.md
+  - La nave:
+      - La oficina: nave/oficina.md
+      - Las cámaras: nave/camaras.md
+      - El final: nave/final.md
+  - Personajes:
+      - Resumen: personajes/index.md
+      - Los enemigos: personajes/enemigos.md
+      - La Aberración: personajes/aberracion.md
+      - Slaimi y los humanos: personajes/slaimi-y-humanos.md
+  - Sobre esta web: acerca.md
+
+theme:
+  name: material
+  language: es
+  logo: img/logo.svg
+  favicon: img/logo.svg
+  font:
+    text: Roboto
+    code: Roboto Mono
+  palette:
+    - scheme: slate
+      primary: black
+      accent: red
+      toggle:
+        icon: material/weather-night
+        name: Cambiar a modo claro
+    - scheme: default
+      primary: blue grey
+      accent: red
+      toggle:
+        icon: material/weather-sunny
+        name: Cambiar a modo oscuro
+  icon:
+    repo: fontawesome/brands/github
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - navigation.indexes
+    - toc.follow
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+    - content.tabs.link
+
+extra_css:
+  - css/extra.css
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/paugarciaperez071108-coder
+      name: GitHub
+    - icon: fontawesome/brands/itch-io
+      link: https://pawerestudios-coder.itch.io/vigia-7
+      name: Vigía-7 en itch.io
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - footnotes
+  - def_list
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.mark
+  - pymdownx.keys
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
