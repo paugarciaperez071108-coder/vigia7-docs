@@ -1,0 +1,48 @@
+name: Publicar web
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configurar git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Descomprimir el proyecto si se ha subido en zip
+        run: |
+          if [ -f vigia7-docs.zip ]; then
+            unzip -o -q vigia7-docs.zip -d /tmp/proyecto
+            cp -r /tmp/proyecto/vigia7-docs/. .
+            git rm -q vigia7-docs.zip
+            git add -A
+            git commit -m "Descomprimir el proyecto MkDocs"
+            git push
+          fi
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Instalar MkDocs Material
+        run: pip install mkdocs-material
+
+      - name: Publicar en la rama gh-pages
+        run: |
+          if [ -f mkdocs.yml ]; then
+            mkdocs gh-deploy --force
+          else
+            echo "Todavía no hay mkdocs.yml"
+          fi
